@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     // Randomly returns either rock, paper, or scissors
     let random = Math.floor(Math.random() * 3);
@@ -30,6 +33,36 @@ function getHumanChoice () {
     }
     else if (choice.toLowerCase() == 'scissors') {
         return 'Scissors';
+    }
+}
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice == 'Rock' && computerChoice == 'Scissors') {
+        humanScore++;
+        return 'You win! Rock beats Scissors.';
+    }
+    else if (humanChoice == 'Rock' && computerChoice == 'Paper') {
+        computerScore++;
+        return 'You Lose! Paper beats Rock.';
+    }
+    else if (humanChoice == 'Scissors' && computerChoice == 'Rock') {
+        computerScore++;
+        return 'You Lose! Rock beats Scissors.';
+    }
+    else if (humanChoice == 'Scissors' && computerChoice == 'Paper') {
+        humanScore++;
+        return 'You Win! Scissors beats Paper.';
+    }
+    else if (humanChoice == 'Paper' && computerChoice == 'Rock') {
+        humanScore++;
+        return 'You Win! Paper beats Rock.';
+    }
+    else if (humanChoice == 'Paper' && computerChoice == 'Scissors') {
+        computerScore++;
+        return 'You Lose! Scissors beats Paper.';
+    }
+    else {
+        return 'Tie! No one wins.';
     }
 }
 
